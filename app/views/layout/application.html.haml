@@ -1,0 +1,20 @@
+!!! Strict
+%html{ html_attrs("en_us") }
+  %head
+    %title
+      Fresh Merb App
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "content-type" }/
+    %link{ :href => "/stylesheets/blueprint/screen.css", :rel => "stylesheet", :media => "screen, projection", :type => "text/css", :charset => "utf-8" }/
+    %link{ :href => "/stylesheets/blueprint/print.css", :rel => "stylesheet", :media => "print", :type => "text/css", :charset => "utf-8" }/
+    /[if IE]
+      %link{ :href => "/stylesheets/blueprint/ie.css", :rel => "stylesheet", :media => "screen, projection", :type => "text/css", :charset => "utf-8" }/
+    %link{ :href => "/stylesheets/application.css", :rel => "stylesheet", :media => "screen, projection", :type => "text/css", :charset => "utf-8" }/
+  %body
+  #header
+    %h1
+      %span#givero> givero
+      %span#us> us
+  #content
+    = catch_content :for_layout
+  #footer
+    %span &copy; givero.us

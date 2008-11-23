@@ -1,0 +1,8 @@
+%h2= @item.name
+
+%h3 Description
+%p.item_description= @item.description
+
+- if @item.url
+  %h3 URL
+  = link_to @item.url, @item.url

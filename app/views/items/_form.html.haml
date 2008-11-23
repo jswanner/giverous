@@ -1,0 +1,23 @@
+%h2 New item for your wish list
+%form{:action=>"#", :method=>"post"}
+  %fieldset
+    %legend Item details
+    %label{:for=>"name"} Name
+    %br/
+    %input.text#name{:type=>"text", :value=>"larry"}/
+    %br/
+    %label{:for=>"description"} Description
+    %br/
+    %textarea#description{:rows=>"8", :cols=>"40"}
+    %br/
+    %label{:for=>"url"} URL
+    %br/
+    %input.text#url{:type=>"text", :value=>"yoyoyoyo"}/
+    %br/
+    .buttons
+      %button.positive{:type=>"submit"}
+        %img{:src=>"/images/icons/accept.png", :alt=>""}/
+        Save
+      %a.button.negative{:href=>"#"}
+        %img{:src=>"/images/icons/delete.png", :alt=>""}/
+        Cancel
