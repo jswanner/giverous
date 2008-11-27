@@ -3,6 +3,9 @@
 %h3 Description
 %p.item_description= @item.description
 
-- if @item.url
-  %h3 URL
-  = link_to @item.url, "http://#{@item.url}"
+%h3 URL
+= link_to @item.url, "http://#{@item.url}"
+.buttons
+  %a.button{:href=>url(:edit_user_item, @user.id, @item_id)}
+    %img{:src=>"/images/icons/pencil.png", :alt=>""}/
+    Edit

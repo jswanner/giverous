@@ -6,7 +6,8 @@ class Items < Application
 
   # GET /users/:user_id/items/:id
   def show(id)
-    @item = @user.items[id.to_i]
+    @item_id = id.to_i
+    @item = @user.items[@item_id]
     render
   end
 
@@ -17,7 +18,9 @@ class Items < Application
   end
 
   # GET /users/:user_id/items/:id/edit
-  def edit
+  def edit(id)
+    @item_id = id.to_i
+    @item = @user.items[@item_id]
     render
   end
 
@@ -29,12 +32,15 @@ class Items < Application
   end
 
   # PUT /users/:user_id/items/:id
-  def update
-    render
+  def update(id, item)
+    @item_id = id.to_i
+    @user.items[@item_id] = Item.new(item)
+    @user.save
+    redirect url(:user_item, @user.id, @item_id)
   end
 
   # DELETE /users/:user_id/items/:id
   def destroy
-    render
+    redirect url(:user, @user.id)
   end
 end
