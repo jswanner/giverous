@@ -3,3 +3,7 @@
   - @users.each do |user|
     %li
       = link_to user.display_name, url(:user, user.name)
+.buttons
+  %a.button{:href=>"/users/new"}
+    %img{:src=>"/images/icons/add.png", :alt=>"add"}/
+    add user

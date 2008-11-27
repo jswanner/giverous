@@ -9,8 +9,7 @@ class Users < Application
   # GET /users/:id
   def show(id)
     @user = User.get(id)
-    @items = Item.by_user :key => id
-    render
+    display @user
   end
 
   # GET /users/new
@@ -29,8 +28,10 @@ class Users < Application
   end
 
   # POST /users
-  def create
-    render
+  def create(user)
+    @user = User.new(user)
+    @user.save
+    redirect url(:user, @user.id)
   end
 
   # PUT /users/:id

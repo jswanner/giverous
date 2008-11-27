@@ -1,9 +1,9 @@
 %h2= "#{@user.display_name}'s wish list"
 %ul#items
-  - @items.each do |item|
+  - @user.items.each_with_index do |item, index|
     %li
-      = link_to item.name, "/users/#{@user.id}/items/#{item.id}"
+      = link_to item.name, "/users/#{@user.id}/items/#{index}"
 .buttons
-  %a.button{:href=>"#"}
+  %a.button{:href=>"/users/#{@user.id}/items/new"}
     %img{:src=>"/images/icons/add.png", :alt=>"add"}/
     add item

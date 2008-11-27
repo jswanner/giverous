@@ -1,42 +1,39 @@
 class Items < Application
   
-  # GET /users/soandso/items
-  def index
-    render
+  before do
+    @user = User.get(params[:user_id])
   end
 
-  # GET /users/soandso/items/:id
+  # GET /users/:user_id/items/:id
   def show(id)
-    @item = Item.get(id)
+    @item = @user.items[id.to_i]
     render
   end
 
-  # GET /users/soandso/items/new
+  # GET /users/:user_id/items/new
   def new
+    @item = Item.new
     render
   end
 
-  # GET /users/soandso/items/:id/edit
+  # GET /users/:user_id/items/:id/edit
   def edit
     render
   end
 
-  # GET /users/soandso/items/:id/delete
-  def delete
-    render
+  # POST /users/:user_id/items
+  def create(item)
+    @user.items << Item.new(item)
+    @user.save
+    redirect url(:user, @user.id)
   end
 
-  # POST /users/soandso/items
-  def create
-    render
-  end
-
-  # PUT /users/soandso/items/:id
+  # PUT /users/:user_id/items/:id
   def update
     render
   end
 
-  # DELETE /users/soandso/items/:id
+  # DELETE /users/:user_id/items/:id
   def destroy
     render
   end
