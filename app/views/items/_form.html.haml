@@ -1,17 +1,15 @@
 %fieldset
   %legend Item details
+  
   %label{:for=>"item_name"} Name
-  %br
   = text_field :name=>"item[name]", :id=>"item_name", :value=>@item.name
-  %br
+  
   %label{:for=>"item_description"} Description
-  %br
   = text_area @item.description, :name=>'item[description]', :id=>'item_description', :rows=>"8", :cols=>"40"
-  %br
+  
   %label{:for=>"item_url"} URL
-  %br
   = text_field :name=>"item[url]", :id=>'item_url', :value=>@item.url
-  %br
+  
   .buttons
     %button.positive{:type=>"submit"}
       %img{:src=>"/images/icons/accept.png", :alt=>""}/
